@@ -81,7 +81,7 @@ export default function RegisterForm() {
       {/* Kiri - Form Section */}
       <div className="w-1/2 flex items-center justify-center p-8 pl-24">
         <div className="w-full max-w-md">
-        <h2 className="text-5xl font-bold bg-black bg-clip-text text-transparent mb-6 leading-tight">
+        <h2 className="text-5xl font-bold bg-gray-600 bg-clip-text text-transparent mb-6 leading-tight">
   Register
 </h2>
 
@@ -202,7 +202,7 @@ export default function RegisterForm() {
 {/* Register Button */}
 <button
   type="submit"
-  className="w-52 ml-21 bg-black text-white py-2 mt-4 rounded-full hover:bg-gray-700 flex justify-center items-center disabled:bg-gray-500"
+  className="w-52 ml-21 bg-gray-600 text-white py-2 mt-4 rounded-full hover:bg-gray-700 flex justify-center items-center disabled:bg-gray-500"
   disabled={loading} // Tombol dinonaktifkan saat loading
 >
   {loading ? (
@@ -240,17 +240,9 @@ export default function RegisterForm() {
       </div>
 
       {/* Kanan - Profile & Title Section */}
-<div className="w-1/2 relative flex items-center justify-center">
-    <img 
-        src="bekbek.jpg" 
-        alt="Background Image" 
-        className="w-full h-[100vh] object-cover"
-    />
-    
-    {/* Overlay untuk bulat hitam + teks */}
+<div className="w-1/2 relative flex items-center justify-center bg-gray-600">    
     <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <div className="w-28 h-28 bg-black rounded-full mb-4"></div>
-        <h1 className="text-4xl font-light text-white">S T A S H I F Y</h1>
+        <h1 className="text-4xl font-light text-white"></h1>
     </div>
 </div>
 </div>

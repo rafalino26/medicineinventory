@@ -40,7 +40,7 @@ export default function LoginForm() {
     <div className="min-h-screen flex bg-white">
       <div className="w-1/2 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
-          <h2 className="text-5xl font-bold bg-black bg-clip-text text-transparent mb-6 leading-tight">Login</h2>
+          <h2 className="text-5xl font-bold bg-gray-600 bg-clip-text text-transparent mb-6 leading-tight">Login</h2>
 
           {error && (
             <div className="text-red-600 bg-red-100 p-2 rounded text-center mb-4">
@@ -79,7 +79,7 @@ export default function LoginForm() {
 
             <button
             type="submit"
-            className="w-60 ml-25 bg-black text-white py-2 rounded-full hover:bg-gray-700 flex justify-center items-center disabled:bg-gray-500"
+            className="w-60 ml-25 bg-gray-600 text-white py-2 rounded-full hover:bg-gray-700 flex justify-center items-center disabled:bg-gray-500"
             disabled={loading} // Tombol dinonaktifkan saat loading
           >
             {loading ? (
@@ -115,15 +115,8 @@ export default function LoginForm() {
         </div>
       </div>
 
-      <div className="w-1/2 relative flex items-center justify-center">
-        <img 
-          src="bekbek.jpg" 
-          alt="Background Image" 
-          className="w-full h-[100vh] object-cover"
-        />
+      <div className="w-1/2 relative flex items-center justify-center bg-gray-600">
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <div className="w-28 h-28 bg-black rounded-full mb-4"></div>
-          <h1 className="text-4xl font-light text-white">S T A S H I F Y</h1>
         </div>
       </div>
     </div>

@@ -5,14 +5,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const pageTitles: Record<string, string> = {
-  "/dashboard/home": "Home",
-  "/dashboard/product": "Product",
-  "/dashboard/inventory": "Inventory",
+  "/dashboard/product": "Medicine",
+  "/dashboard/inventory": "Batch",
   "/dashboard/stock-entry": "Stock Update",
-  "/dashboard/market-price": "Market Price",
-  "/dashboard/hpp": "HPP",
-  "/dashboard/report": "Report",
-  "/dashboard/about-us": "About Us",
   "/dashboard/profile": "Edit Profile"
 };
 
@@ -78,7 +73,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </div>
           </div>
         </header>
-        <main className="flex-1 p-6 bg-[#C7DFEA]">{children}</main>
+        <main className="flex-1 p-6 bg-blue-100">{children}</main>
 
         {/* Modal Logout Confirmation */}
         {showLogoutModal && (

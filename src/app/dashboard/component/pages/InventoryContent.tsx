@@ -171,7 +171,7 @@ const fetchInventory = async () => {
   
 
   return (
-    <div className="p-6 -mt-5 bg-[#C7DFEA] min-h-screen text-black">
+    <div className="p-6 -mt-5 min-h-screen text-black">
       <div className="flex justify-between items-center mb-4 space-x-4">
         {/* 🔹 Input Search */}
         <input

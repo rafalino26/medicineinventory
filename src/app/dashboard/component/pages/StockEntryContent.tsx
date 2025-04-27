@@ -160,7 +160,7 @@ useEffect(() => {
   });
 
   return (
-    <div className="p-6 bg-[#C7DFEA] min-h-screen text-black">
+    <div className="p-6 min-h-screen text-black">
 
       <div className="flex justify-between items-center mb-4 space-x-4">
         <input
