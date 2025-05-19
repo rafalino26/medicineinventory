@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 
 const menuItems = [
+    { label: "Home", path: "/dashboard/home", icon: "/home.png", iconActive: "/home-black.png", tooltip: "Go to Home Page" },
     { label: "Medicine Stock", path: "/dashboard/product",  icon: "/stockentry.png", iconActive: "/stockentry-black.png", tooltip: "Manage your inventory here" },
     { label: "Add Batch", path: "/dashboard/inventory", icon: "/inventory.png", iconActive: "/inventory-black.png", tooltip: "Manage your inventory here" },
     { label: "Stock Update", path: "/dashboard/stock-entry", icon: "/stockupdate.png", iconActive: "/stockupdate-black.png", tooltip: "Add new stock to your inventory" },

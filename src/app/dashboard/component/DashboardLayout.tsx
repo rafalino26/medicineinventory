@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const pageTitles: Record<string, string> = {
+  "/dashboard/home": "Home",
   "/dashboard/product": "Medicine",
   "/dashboard/inventory": "Batch",
   "/dashboard/stock-entry": "Stock Update",
