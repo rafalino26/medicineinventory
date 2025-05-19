@@ -44,46 +44,54 @@ type BarData = {
     const [pieData, setPieData] = useState<PieData[]>([]);
     const [announcements, setAnnouncements] = useState<Announcement[]>([]);
 
-    useEffect(() => {
-      const fetchDashboardData = async () => {
-        try {
-          const [dashboardRes, announcementRes] = await Promise.all([
-            api.get("/dashboard", { withCredentials: true }),
-            api.get("/announcement"),
-          ]);
-    
-          const data = dashboardRes.data;
-          const announcementData = announcementRes.data.data;
-    
-          // Set cards
-          setTotalProducts(data.totalProducts);
-          setLowStockCount(data.lowStockCount);
-    
-          // Transform bar data
-          const bar = data.last7DaysMovements.map((item: any) => ({
-            name: item.period,
-            masuk: item.total_in,
-            keluar: item.total_out,
-          }));
-          setBarData(bar);
-    
-          // Transform pie data
-          const pie = data.productTypeDistribution.map((item: any) => ({
-            name: item.product_type,
-            value: item.percentage,
-            color: getRandomColor(item.product_type),
-          }));
-          setPieData(pie);
-    
-          // Set announcements
-          setAnnouncements(announcementData);
-        } catch (error) {
-          console.error("Failed to fetch dashboard or announcement data:", error);
-        }
-      };
-    
-      fetchDashboardData();
-    }, []);
+      useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        // 1. Call POST /announcement/check terlebih dahulu
+        await api.post("/announcement/check", {}, { withCredentials: true });
+
+        // 2. Setelah POST selesai, lanjut GET dashboard dan announcement
+        const [dashboardRes, announcementRes] = await Promise.all([
+          api.get("/dashboard", { withCredentials: true }),
+          api.get("/announcement"),
+        ]);
+
+        const data = dashboardRes.data;
+        const announcementData = announcementRes.data.data;
+
+        // Set cards
+        setTotalProducts(data.totalProducts);
+        setLowStockCount(data.lowStockCount);
+
+        // Transform bar data
+        const bar = data.last7DaysMovements.map((item: any) => ({
+          name: item.period,
+          masuk: item.total_in,
+          keluar: item.total_out,
+        }));
+        setBarData(bar);
+
+        // Transform pie data
+        const pie = data.productTypeDistribution.map((item: any) => ({
+          name: item.product_type,
+          value: item.percentage,
+          color: getRandomColor(item.product_type),
+        }));
+        setPieData(pie);
+
+        // Sort & Set announcements
+        const sortedAnnouncements = announcementData.sort(
+          (a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+        setAnnouncements(sortedAnnouncements);
+
+      } catch (error) {
+        console.error("Failed to fetch dashboard or announcement data:", error);
+      }
+    };
+
+    fetchDashboardData();
+  }, []);
     
   const getRandomColor = (name: string) => {
     const colors: { [key: string]: string } = {
